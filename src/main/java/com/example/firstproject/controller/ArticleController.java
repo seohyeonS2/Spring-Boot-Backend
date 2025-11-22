@@ -47,4 +47,8 @@ public class ArticleController {
         // 3. 뷰 페이지 반환하기
         return "articles/show";
     }
+    @GetMapping("/articles")
+    public  String index(){
+        return "";
+    }
 }
