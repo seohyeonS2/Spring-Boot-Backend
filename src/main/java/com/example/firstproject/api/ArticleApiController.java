@@ -16,11 +16,11 @@ import java.util.List;
 public class ArticleApiController {
     @Autowired
     private ArticleService articleService; //서비스 객체 주입
-//    //GET
-//    @GetMapping("api/articles") //URL 요청 접수
-//    public List<Article> index() { //index() 메서드 정의
-//        return articleRepository.findAll();
-//    }
+    //GET
+    @GetMapping("api/articles") //URL 요청 접수
+    public List<Article> index() { //index() 메서드 정의
+        return articleService.index();
+    }
 //    @GetMapping("api/articles/{id}") //단일 아티클 반환
 //    public Article show(@PathVariable Long id) {  //반환형 Article
 //        return articleRepository.findById(id).orElse(null); //해당 엔티티 빈환 or ㅜㅕㅣㅣ
