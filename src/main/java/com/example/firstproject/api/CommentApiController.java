@@ -2,6 +2,7 @@ package com.example.firstproject.api;
 
 import com.example.firstproject.dto.CommentDto;
 import com.example.firstproject.service.CommentService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,14 @@ public class CommentApiController {
         CommentDto updatedDto=commentService.update(id, dto);
         //결과 응답
         return ResponseEntity.status(HttpStatus.OK).body(updatedDto);
+    }
+    //4. 댓글 삭제
+    @DeleteMapping("/api/comments/{id}") //댓글 삭제 요청 접수
+    public ResponseEntity<CommentDto> delete(@PathVariable Long id){ //delete() 메서드 생성
+        //서비스에 위임
+        CommentDto deletedDto=commentService.delete(id);
+        //결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(deletedDto);
     }
 
 }
