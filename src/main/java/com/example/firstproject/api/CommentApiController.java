@@ -17,7 +17,7 @@ public class CommentApiController {
     private CommentService commentService;
     @GetMapping("/api/articles/{articleId}/comments") //댓글 조회 요청 접수
     public ResponseEntity<List<CommentDto>> comments(@PathVariable Long articleId){ //comments() 메서드 생성
-        return null; //null 반환
+
         //서비스에 위임
         List<CommentDto> dtos=commentService.comments(articleId);
         //결과 응답
