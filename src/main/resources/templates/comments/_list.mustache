@@ -3,6 +3,25 @@
         <div class="card m-2" id="comments-{{id}}">
             <div class="card-header">
                 {{nickname}}
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#comment-edit-modal">
+                    수정
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="comment-edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title" id="exampleModalLabel">댓글 수정</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 {{body}}
