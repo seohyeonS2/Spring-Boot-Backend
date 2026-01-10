@@ -107,12 +107,12 @@
 <script>
     {
         // 삭제 버튼 선택
-        const commentDeleteBtnㄴ=document.querySelectorAll(".comment-delete-btn");
+        const commentDeleteBtns=document.querySelectorAll(".comment-delete-btn");
         // //삭제 버튼 이벤트 처리
         // commentDeleteBtn.addEventListener("click", function(){
         //    console.log("삭제 버튼이 클릭됐습니다..!")
         // });
-        commentDeleteBtn.forEach(btn=>{
+        commentDeleteBtns.forEach(btn=>{
             btn.addEventListener("click", (event)=>{
                 //이벤트 발생 요소 선택
                 const commentDeleteBtn=event.target;
