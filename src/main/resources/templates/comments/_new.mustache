@@ -21,3 +21,24 @@
         </form>
     </div>
 </div>
+<script>
+    {
+        //댓글 생성 버튼 변수화
+        const commentCreateBtn=document.querySelector("#comment-create-btn");
+        //댓글 클릭 이벤트 감지
+        commentCreateBtn.addEventListener("click", function (){
+            //새 댓글 객체 생성
+            const comment={
+                //새 댓글의 닉네임
+                nickname: document.querySelector("#new-comment-nickname").value,
+                //새 댓글의 본문
+                body: document.querySelector("#new-comment-body").value,
+                //부모 게시글의 id
+                articleId: document.querySelector("#new-comment-article-id").value
+
+            }
+            //댓글 객체 출력
+            console.log(comment);
+    });
+    }
+</script>
