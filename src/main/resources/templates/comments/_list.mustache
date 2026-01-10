@@ -69,4 +69,35 @@
             document.querySelector("#edit-comment-article-id").value=articleId;
         });
     }
+    {
+        //수정 완료 버튼 선택
+        const commentUpdateBtn=document.querySelector("#comment-update-btn");
+        //클릭 이벤트 처리
+        commentUpdateBtn.addEventListener("click", function(){
+            //수정 댓글 객체 생성
+            const comment={
+                id: document.querySelector("#edit-comment-id").value,
+                nickname: document.querySelector("#edit-comment-nickname").value,
+                body: document.querySelector("#edit-comment-body").value,
+                article_id: document.querySelector("#edit-comment-article-id").value
+            }
+            console.log(comment);
+            //수정 REST API 호출
+            const url="/api/comments/"+comment.id;
+            fetch(url, {
+                method:"PATCH"
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(comment)
+            }).then(response=>{
+                // HTTP 응답 코드에 따른 메시지 출력
+                const msg=(response.ok)? "댓글이 수정됐습니다.":"댓글 수정 실패..!";
+                alert(msg);
+                //현재 페이지 새로 고침
+                window.location.reload();
+            })
+        });
+
+    }
 </script>
