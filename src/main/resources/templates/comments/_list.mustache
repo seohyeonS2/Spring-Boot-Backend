@@ -11,7 +11,7 @@
                     수정
                 </button>
                 <!--댓글 삭제 버튼-->
-                <button type="button" class="btn btn-sm btn-outline-danger comment-delete-btn">삭제</button>
+                <button type="button" class="btn btn-sm btn-outline-danger comment-delete-btn" data-comment-id="{{id}}">삭제</button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="comment-edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,7 +87,7 @@
             //수정 REST API 호출
             const url="/api/comments/"+comment.id;
             fetch(url, {
-                method:"PATCH"
+                method:"PATCH",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -101,5 +101,25 @@
             })
         });
 
+    }
+</script>
+<!-- 댓글 삭제 -->
+<script>
+    {
+        // 삭제 버튼 선택
+        const commentDeleteBtnㄴ=document.querySelectorAll(".comment-delete-btn");
+        // //삭제 버튼 이벤트 처리
+        // commentDeleteBtn.addEventListener("click", function(){
+        //    console.log("삭제 버튼이 클릭됐습니다..!")
+        // });
+        commentDeleteBtnㄴ.forEach(btn=>{
+            btn.addEventListener("click", (event)=>{
+                //이벤트 발생 요소 선택
+                const commentDeleteBtn=event.target;
+                //삭제 댓글 id 가져오기
+                const commentId=commentDeleteBtn.getAttribute("data-comment-id");
+                console.log(`삭제 버튼 클릭: ${commentId}번 댓글`);
+            })
+        })
     }
 </script>
